@@ -39,3 +39,46 @@ jobs:
       # - run: npm ci
       # - run: npm run build --if-present
       # - run: npm test
+
+  dev:
+    needs: build
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Exibir mensagem
+        run: echo "Hello, dev!"
+  
+  qa:
+    needs: build
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Exibir mensagem
+        run: echo "Hello, qa!"
+
+  homologcao:
+    needs: [dev, qa]
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Exibir mensagem
+        run: echo "Hello, homologação!"
+  
+  producao:
+    needs: [homologcao]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Exibir mensagem
+        run: echo "Hello, produção!"
