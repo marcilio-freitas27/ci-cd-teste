@@ -34,6 +34,7 @@ jobs:
       # Run executa comandos no terminal
       # - run: npm ci
       # - run: npm test
+      - run: npm i
       - run: npm start
 
   dev:
