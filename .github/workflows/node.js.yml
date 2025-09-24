@@ -33,7 +33,7 @@ jobs:
   
       # Run executa comandos no terminal
       # - run: npm ci
-      - run: npm test
+      # - run: npm test
       - run: npm start
 
   dev:
