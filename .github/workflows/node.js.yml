@@ -59,7 +59,7 @@ jobs:
       - name: Exibir mensagem
         run: echo "Hello, qa!"
 
-  homologcao:
+  homologacao:
     needs: [dev, qa]
 
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
         run: echo "Hello, homologação!"
   
   producao:
-    needs: [homologcao]
+    needs: [homologacao]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
