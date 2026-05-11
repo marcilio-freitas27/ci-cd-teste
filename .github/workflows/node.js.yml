@@ -17,16 +17,20 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    # strategy:
+    #   matrix:
+    #     node-version: [24.x]
+    # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     # steps executam comandos que podem ser nomeados
     steps:
       # uses indica o camando a ser usado
       - name: Checkout
         uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
 
       - name: Exibir mensagem
         run: echo "Hello, world!"
